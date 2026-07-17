@@ -35,8 +35,12 @@ jobs:
           out_dir: project/bin
           android_properties: |
             android.accept_sdk_license = yes
+      - name: Find APK files
+        run: find project -name "*.apk" -type f
+      - name: List directories
+        run: ls -la project/bin/ 2>/dev/null || ls -la project/game/bin/ 2>/dev/null || echo "No bins found"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: apk
-          path: project/game/bin/**/*.apk
+          path: project/bin/**/*.apk
