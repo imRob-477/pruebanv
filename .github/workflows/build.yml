@@ -39,4 +39,4 @@ jobs:
         if: always()
         with:
           name: apk
-          path: project/bin/**/*.apk
+          path: project/game/bin/**/*.apk
