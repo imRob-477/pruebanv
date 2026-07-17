@@ -1,15 +1,15 @@
 name: Build
 on:
   push:
-      branches: [main]
-      jobs:
-        build:
-            runs-on: ubuntu-latest
-                steps:
-                      - uses: actions/checkout@v3
-                            - run: pip install buildozer cython
-                                  - run: cd game && buildozer android release
-                                        - uses: actions/upload-artifact@v3
-                                                with:
-                                                          name: apk
-                                                                    path: game/bin/*.apk
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pip install buildozer cython
+      - run: cd game && buildozer android release
+      - uses: actions/upload-artifact@v3
+        with:
+          name: apk
+          path: game/bin/*.apk
