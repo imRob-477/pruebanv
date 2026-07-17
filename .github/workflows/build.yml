@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: pip install buildozer cython
       - run: cd game && buildozer android release
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: apk
           path: game/bin/*.apk
