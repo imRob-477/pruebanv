@@ -23,6 +23,7 @@ jobs:
         with:
           action: install
           install_dir: renpy
+          dlc: rapt
           android_sdk: true
       - name: Build APK
         uses: Ayowel/renpy-setup-action@v2.0.1
