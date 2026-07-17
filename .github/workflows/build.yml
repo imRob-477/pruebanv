@@ -1,4 +1,4 @@
-name: Build APK
+name: Build Ren'Py APK
 on:
   push:
       branches: [main]
@@ -9,10 +9,11 @@ on:
                       - uses: actions/checkout@v3
                             - uses: actions/setup-python@v4
                                     with:
-                                              python-version: '3.10'
-                                                    - run: pip install buildozer cython
-                                                          - run: cd game && buildozer android release
-                                                                - uses: actions/upload-artifact@v3
-                                                                        with:
-                                                                                  name: apk
-                                                                                            path: game/bin/*.apk
+                                              python-version: '3.11'
+                                                    - uses: android-actions/setup-android@v2
+                                                          - run: pip install buildozer cython
+                                                                - run: cd game && buildozer android release
+                                                                      - uses: actions/upload-artifact@v3
+                                                                              with:
+                                                                                        name: apk
+                                                                                                  path: game/bin/*.apk
